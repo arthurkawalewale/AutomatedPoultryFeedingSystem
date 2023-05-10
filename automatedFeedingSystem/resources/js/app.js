@@ -1,4 +1,7 @@
 import './bootstrap';
 
-import feather from 'feather-icons';
+import '../sass/app.scss'
 
+import './mychart.js';
+
+import 'feather-icons';
