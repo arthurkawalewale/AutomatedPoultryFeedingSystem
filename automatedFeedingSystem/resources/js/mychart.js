@@ -74,15 +74,15 @@
                     21345,
                     18483,
                     24003,
-                    23489,
-                    24092,
-                    12034
+                    17489,
+                    4092,
+                    8000,
                 ],
                 lineTension: 0,
                 backgroundColor: 'transparent',
-                borderColor: '#007bff',
+                borderColor: '#143a1a',
                 borderWidth: 4,
-                pointBackgroundColor: '#007bff'
+                pointBackgroundColor: '#143a1a'
             }]
         },
         options: {
