@@ -15,9 +15,5 @@ class waterTank extends Chart
     {
         parent::__construct();
 
-        $chart = new waterTank;
-
-
-
     }
 }

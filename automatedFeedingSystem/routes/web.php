@@ -14,11 +14,11 @@ use App\Http\Controllers\ChartController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-//Route::get('/', [ChartController::class, 'index']);
+Route::get('/', [ChartController::class, 'index']);
 
 //Auth::routes();
 

@@ -2,20 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\waterTank;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
 {
     public function index()
     {
+        $chartData = new waterTank;
+
         $chartData = [
-            ['label' => 'January', 'value' => '100'],
-            ['label' => 'February', 'value' => '200'],
-            ['label' => 'March', 'value' => '150'],
-            ['label' => 'April', 'value' => '300'],
-            ['label' => 'May', 'value' => '250'],
+            "chart" => [
+                "caption" => "Sales Performance",
+                "subcaption" => "Current Month",
+                "lowerLimit" => "0",
+                "upperLimit" => "100",
+                "theme" => "fusion",
+                "showValue" => "1",
+                "cylFillColor" => "#0075c2",
+                "annotations" => [
+                    "groups" => [
+                        [
+                            "items" => [
+                                [
+                                    "id" => "label",
+                                    "type" => "text",
+                                    "text" => "75%",
+                                    "color" => "#666666",
+                                    "fontSize" => "20",
+                                    "x" => "100",
+                                    "y" => "70 - 40"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "value" => "75"
         ];
 
-        return view('index', compact('chartData'));
+        return view('welcome', compact('chartData'));
     }
 }

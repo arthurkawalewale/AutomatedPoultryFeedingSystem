@@ -9,94 +9,38 @@
     <title>Dashboard</title>
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
         @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-            /*--bd-violet-bg: #712cf9;
-            --bs-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;*/
-            background-color: #64147e;
-
 
         }
-        .bd-mode-toggle {
-            z-index: 1500;
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 15px; /* Increase font size */
         }
 
-        .control_center {
-
+        #myBtn:hover {
+            background-color: #2e2e5e; /* Add a dark-grey background on hover */
         }
     </style>
 
     <link rel="stylesheet" href="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.css">
 
+    @livewireStyles
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" aria-label="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="navbar">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -134,7 +78,7 @@
     <div class="container-fluid">
         <main class="mx-md-4 mt-4">
             <div class="row">
-                <div class="pt-3 pb-2 col-md-3 col-lg-4">
+                <!--<div class="pt-3 pb-2 col-md-3 col-lg-4">
                     <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">Number of Chickens</h5>
@@ -159,10 +103,13 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
+                </div>-->
+
+                <!--div id="chart-container">Cylinder Gauge chart will render here.</div>-->
+
+                <div>
+                    @yield('body')
                 </div>
-
-                <!--<div id="chart-container">FusionCharts XT will load here!</div>-->
-
 
             </div>
 
@@ -308,30 +255,18 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <legend><h5>Water Reservoir</h5></legend>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                                <label class="form-check-label" for="male">On</label>
-                                            </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                                <label class="form-check-label" for="female">Off</label>
+                                            <legend><h5>Servo Motor</h5></legend>
+                                            <div class="form-check form-switch d-inline-block align-text-bottom">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                                             </div>
                                         </fieldset>
                                     </div>
 
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <legend><h5>Water Trough</h5></legend>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                                <label class="form-check-label" for="male">On</label>
-                                            </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                                <label class="form-check-label" for="female">Off</label>
+                                            <legend><h5>Water Trough Sensor</h5></legend>
+                                            <div class="form-check form-switch d-inline-block align-text-bottom">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -345,13 +280,52 @@
         </main>
     </div>
 
+    <button onclick="topFunction()" id="myBtn" class="btn btn-sm btn-primary" title="Go to top">Top</button>
+
     <footer class="footer bg-dark container-fluid overflow-hidden">
         <hr>
         <p class="text-muted text-center">Copyright &copy; <?php echo date('Y');?> - All Rights Reserved</p>
     </footer>
 </body>
 
+@livewireScripts
+
 <script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
 
+<script>
+    // Get the button:
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+</script>
+
+<script>
+    FusionCharts.ready(function() {
+        var chartData = {!! json_encode($chartData) !!};
+        var chart = new FusionCharts({
+            type: 'cylinder',
+            renderAt: 'chart-container',
+            width: '400',
+            height: '300',
+            dataSource: chartData
+        }).render();
+    });
+</script>
 </html>
