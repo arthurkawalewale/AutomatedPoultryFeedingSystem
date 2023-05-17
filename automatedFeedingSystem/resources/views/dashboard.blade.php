@@ -1,7 +1,5 @@
-@extends('skeleton')
+@extends('welcome')
 
 @section('body')
-
-    <livewire:dashboard.wan-speed-tests/>
-
+    <livewire:dashboard.water-level-data-sets/>
 @endsection

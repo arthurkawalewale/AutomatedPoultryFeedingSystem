@@ -19,7 +19,7 @@ use Throwable;
 class View implements ArrayAccess, Htmlable, ViewContract
 {
     use Macroable {
-        __call as macroCall;
+        Macroable::__call as macroCall;
     }
 
     /**

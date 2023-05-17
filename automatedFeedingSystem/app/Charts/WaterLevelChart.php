@@ -2,7 +2,7 @@
 
 namespace App\Charts;
 
-use App\Support\Livewire\ChartComponentData;
+use App\Support\ChartComponentData;
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 
 class WaterLevelChart extends Chart
@@ -42,8 +42,9 @@ class WaterLevelChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Upload speed (Mbps)", "line", $data->datasets()[0])->options([
+        $this->dataset("Water Levels in litres", "line", $data->datasets()[0])->options([
             'backgroundColor'           => 'rgb(127,156,245, 0.4)',
+            'fill'                      => true,
             'borderColor'               => '#7F9CF5',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
@@ -51,6 +52,8 @@ class WaterLevelChart extends Chart
             'pointHoverBorderColor'     => '#7F9CF5',
             'borderWidth'               => 1,
             'pointRadius'               => 1,
+            'tooltip'                   => true,
+            'tension'                   =>  0.6
         ]);
     }
 }

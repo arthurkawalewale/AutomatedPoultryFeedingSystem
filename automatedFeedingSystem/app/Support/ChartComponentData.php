@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support\Livewire;
+namespace App\Support;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;

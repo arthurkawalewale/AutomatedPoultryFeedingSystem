@@ -1,10 +1,10 @@
 <div wire:poll.10s>
 
     <header>
-        <h2>WAN speed tests <small>Past 24hours</small></h2>
+        <h5>Water levels</h5>
     </header>
 
-    <div wire:ignore wire:key={{ $chart->id }}>
+    <div wire:ignore wire:key={{ $chart_id }}>
         @if($chart)
             {!! $chart->container() !!}
         @endif

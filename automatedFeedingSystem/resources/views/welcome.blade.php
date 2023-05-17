@@ -32,8 +32,6 @@
         }
     </style>
 
-    <link rel="stylesheet" href="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.css">
-
     @livewireStyles
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -78,39 +76,13 @@
     <div class="container-fluid">
         <main class="mx-md-4 mt-4">
             <div class="row">
-                <!--<div class="pt-3 pb-2 col-md-3 col-lg-4">
-                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Number of Chickens</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+                <div class="pb-2 col-md-6">
+                    <livewire:dashboard.water-level-data-sets/>
                 </div>
 
-                <div class="pt-3 pb-2 col-md-3 col-lg-4">
-                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Light card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+                <div class="pb-2 col-md-6">
+                    <livewire:dashboard.water-level-data-sets/>
                 </div>
-
-                <div class="pt-3 pb-2 col-md-3 col-lg-4">
-                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Light card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>-->
-
-                <!--div id="chart-container">Cylinder Gauge chart will render here.</div>-->
-
-                <div>
-                    @yield('body')
-                </div>
-
             </div>
 
             <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -145,103 +117,8 @@
             <div>
                 <button type="button" class="btn btn-secondary mb-3" id="controls"> <x-feathericon-settings class="align-text-bottom" style="height: 20px"/> Controls</button>
 
-                <!--<div class="d-flex justify-content-center align-items-center mx-5 mb-2 control_center" id="controls">
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4">
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Address 2</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">State</label>
-                            <select id="inputState" class="form-select">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Check me out
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
-                        </div>
-                    </form>
-                </div>-->
-
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
                     <div class="col-lg-6">
-                        <!--<form class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress2" class="form-label">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputCity" class="form-label">City</label>
-                                <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="inputState" class="form-label">State</label>
-                                <select id="inputState" class="form-select">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="inputZip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="inputZip">
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Sign in</button>
-                            </div>
-                        </form>-->
 
                         <form class="border p-4 rounded-5">
                             <fieldset>
@@ -316,7 +193,8 @@
 
 </script>
 
-<script>
+@stack('scripts')
+<!--<script>
     FusionCharts.ready(function() {
         var chartData = {!! json_encode($chartData) !!};
         var chart = new FusionCharts({
@@ -327,5 +205,5 @@
             dataSource: chartData
         }).render();
     });
-</script>
+</script>-->
 </html>

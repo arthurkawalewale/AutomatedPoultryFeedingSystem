@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Support\Livewire;
+namespace App\Support;
 
-use Illuminate\View\View;
+use Illuminate\View\view;
 use Livewire\Component;
 
 /**
@@ -29,7 +29,7 @@ abstract class ChartComponent extends Component
     protected abstract function chartClass(): string;
 
     /**
-     * @return \App\Support\Livewire\ChartComponentData
+     * @return \App\Support\ChartComponentData
      */
     protected abstract function chartData(): ChartComponentData;
 
@@ -39,7 +39,7 @@ abstract class ChartComponent extends Component
     protected abstract function view(): string;
 
     /**
-     * @return \Illuminate\View\View
+     * @return \illuminate\View\view
      */
     public function render(): View
     {
@@ -56,6 +56,7 @@ abstract class ChartComponent extends Component
 
         elseif($chart_data->checksum()!==$this->chart_data_checksum)
         {
+
             $this->emit('chartUpdate', $this->chart_id, $chart_data->labels(), $chart_data->datasets());
         }
 
@@ -65,5 +66,4 @@ abstract class ChartComponent extends Component
             'chart' => ($chart ?? null)
         ]);
     }
-
 }
