@@ -34,7 +34,7 @@
 
     @livewireStyles
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss'])
 
 </head>
 <body>
@@ -66,9 +66,9 @@
                         </a>
                     </li>
                 </ul>
-                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <!--<div class="d-lg-flex col-lg-3 justify-content-lg-end">
                     <button class="btn btn-primary"><x-feathericon-log-out class="align-text-bottom" style="height: 20px"/>Log out </button>
-                </div>
+                </div>-->
             </div>
         </div>
     </nav>
@@ -76,11 +76,7 @@
     <div class="container-fluid">
         <main class="mx-md-4 mt-4">
             <div class="row">
-                <div class="pb-2 col-md-6">
-                    <livewire:dashboard.water-level-data-sets/>
-                </div>
-
-                <div class="pb-2 col-md-6">
+                <div class="pb-2 col-md-9">
                     <livewire:dashboard.water-level-data-sets/>
                 </div>
             </div>
@@ -165,10 +161,13 @@
     </footer>
 </body>
 
-@livewireScripts
-
 <script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
+
+@livewireScripts
+@stack('scripts')
+
+@vite(['resources/js/app.js'])
 
 <script>
     // Get the button:
@@ -193,17 +192,4 @@
 
 </script>
 
-@stack('scripts')
-<!--<script>
-    FusionCharts.ready(function() {
-        var chartData = {!! json_encode($chartData) !!};
-        var chart = new FusionCharts({
-            type: 'cylinder',
-            renderAt: 'chart-container',
-            width: '400',
-            height: '300',
-            dataSource: chartData
-        }).render();
-    });
-</script>-->
 </html>

@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Support;
-
 use Illuminate\View\view;
 use Livewire\Component;
 
 /**
  * Class ChartComponent
  *
- * @package App\Support\Livewire
+ * @package App\Support
  */
 abstract class ChartComponent extends Component
 {
@@ -29,7 +28,7 @@ abstract class ChartComponent extends Component
     protected abstract function chartClass(): string;
 
     /**
-     * @return \App\Support\ChartComponentData
+     * @return ChartComponentData
      */
     protected abstract function chartData(): ChartComponentData;
 
@@ -56,7 +55,6 @@ abstract class ChartComponent extends Component
 
         elseif($chart_data->checksum()!==$this->chart_data_checksum)
         {
-
             $this->emit('chartUpdate', $this->chart_id, $chart_data->labels(), $chart_data->datasets());
         }
 
@@ -66,4 +64,5 @@ abstract class ChartComponent extends Component
             'chart' => ($chart ?? null)
         ]);
     }
+
 }

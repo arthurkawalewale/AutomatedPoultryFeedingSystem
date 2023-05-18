@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('water_readings', function (Blueprint $table) {
             $table->id();
             $table->float('reading');
-            $table->timestamps();
-            $table->foreignId('water_tank_id')->constrained('water_tanks')->cascadeOnDelete();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->foreignId('water_tank_id');
         });
     }
 

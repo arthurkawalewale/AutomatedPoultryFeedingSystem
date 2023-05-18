@@ -4,18 +4,20 @@ import '../sass/app.scss'
 
 import './mychart.js';
 
-import 'fusioncharts';
-
 import 'feather-icons';
 
-window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
-    let chart = window[chartId].chart;
+
+    window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
+    let chart = window[chartId];
 
     chart.data.datasets.forEach((dataset, key) => {
-        dataset.data = datasets[key];
-    });
+    dataset.data = datasets[key];
+});
 
     chart.data.labels = labels;
 
+    console.log(chart)
+    //alert("I'm here");
     chart.update();
 });
+

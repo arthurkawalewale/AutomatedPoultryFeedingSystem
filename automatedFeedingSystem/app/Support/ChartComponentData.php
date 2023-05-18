@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 /**
  * Class ChartComponentData
  *
- * @package App\Support\Livewire
+ * @package App\Support
  */
 class ChartComponentData implements Arrayable
 {
@@ -69,5 +69,4 @@ class ChartComponentData implements Arrayable
     {
         return $this->datasets;
     }
-
 }

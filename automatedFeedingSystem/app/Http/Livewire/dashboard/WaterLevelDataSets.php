@@ -11,12 +11,6 @@ use Illuminate\Support\Collection;
 
 class WaterLevelDataSets extends ChartComponent
 {
-    /*public function render()
-    {
-        return view('livewire.water-level-data-sets');
-    }*
-
-
     /**
      * @return string
      */
@@ -38,12 +32,7 @@ class WaterLevelDataSets extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $water_level_data_sets = WaterReading::query()
-            ->select(['id', 'created_at', 'reading'])
-            ->where('created_at', '>=', Carbon::now()->subDays(4))
-            ->where('created_at', '<=', Carbon::now())
-            ->get();
-        //$water_level_data_sets = WaterReading::query()->latest();
+        $water_level_data_sets = WaterReading::query('id')->latest()->take(5)->get();
 
         $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
             return $water_level_data_sets->created_at->format('Y-m-d H:i:s');

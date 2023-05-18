@@ -1,15 +1,16 @@
-<div wire:poll.10s>
+<div wire:poll.6s>
 
     <header>
         <h5>Water levels</h5>
     </header>
 
-    <div wire:ignore wire:key={{ $chart_id }}>
-        @if($chart)
-            {!! $chart->container() !!}
-        @endif
+    <div wire:ignore>
+        <div wire:key={{ $chart?->id }}>
+            @if($chart)
+                {!! $chart->container() !!}
+            @endif
+        </div>
     </div>
-
 </div>
 
 @if($chart)
