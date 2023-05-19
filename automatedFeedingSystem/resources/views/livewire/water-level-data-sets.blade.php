@@ -1,7 +1,8 @@
-<div wire:poll.6s>
+<div wire:poll.100ms>
 
     <header>
-        <h5>Water levels</h5>
+        <h5>Water levels <button id="Rec" class="mx-2">Recording</button></h5>
+
     </header>
 
     <div wire:ignore>

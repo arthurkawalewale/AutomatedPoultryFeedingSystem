@@ -30,6 +30,35 @@
         #myBtn:hover {
             background-color: #2e2e5e; /* Add a dark-grey background on hover */
         }
+
+        #Rec{
+            display: inline;
+            width: 8px;
+            height: 12px;
+            font-size: 0;
+            background-color: red;
+            border: 0;
+            border-radius: 20px;
+            outline: black;
+            transform: translate(-20%, -40%);
+
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0px 0px 1px 0px rgba(173, 0, 0, .3);
+            }
+            65% {
+                box-shadow: 0px 0px 1px 4px rgba(173, 0, 0, .3);
+            }
+            90% {
+                box-shadow: 0px 0px 1px 4px rgba(173, 0, 0, 0);
+            }
+        }
     </style>
 
     @livewireStyles
@@ -47,7 +76,7 @@
             <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
                 <h1 class="h2 text-light col-lg-3 me-0">Dashboard</h1>
                 <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-                    <li class="nav-item">
+                    <<li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">
                             <x-feathericon-home class="align-text-bottom" style="height: 20px"/>
                             Dashboard
@@ -66,9 +95,9 @@
                         </a>
                     </li>
                 </ul>
-                <!--<div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                    <button class="btn btn-primary"><x-feathericon-log-out class="align-text-bottom" style="height: 20px"/>Log out </button>
-                </div>-->
+                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                    <button class="btn btn-primary"><x-feathericon-log-out class="align-text-bottom" style="height: 20px"/> Log out</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -76,9 +105,10 @@
     <div class="container-fluid">
         <main class="mx-md-4 mt-4">
             <div class="row">
-                <div class="pb-2 col-md-9">
+                <div class="pb-2 col-md-12">
                     <livewire:dashboard.water-level-data-sets/>
                 </div>
+
             </div>
 
             <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

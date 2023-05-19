@@ -42,7 +42,7 @@ class WaterLevelChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Water Levels in Tank (Litres)", "line", $data->datasets()[0])->options([
+        $this->dataset("Water Levels in Tank (cm)", "line", $data->datasets()[0])->options([
             'backgroundColor'           => 'rgb(127,156,245, 0.4)',
             'fill'                      => true,
             'borderColor'               => '#7F9CF5',
