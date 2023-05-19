@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 import time
 from Servo_test import control_servo
+from sms import send_whatsapp,send_sms
 
 # Set up GPIO pins for servo motor
 #SERVO_PIN = 33
@@ -71,8 +72,10 @@ def on_message(client, userdata, msg):
     # Store the value in the sensor_values dictionary
     sensor_values[sensor_name] = round(payload,2)
   
-    if  "tank" in sensor_values and sensor_values["tank"]<= 6:
+    if  "tank" in sensor_values and sensor_values["tank"] < 6:
         print("sending email")
+        send_whatsapp("Main tank is running out of water please refill")
+        send_sms("Main tank is running out of water please refill")
     elif (("tank" in sensor_values and sensor_values["tank"] )> 6) and (("trough" in sensor_values and sensor_values["trough"])<1):
         control_servo(90)
     elif "trough" in sensor_values and sensor_values["trough"] >0.1:
