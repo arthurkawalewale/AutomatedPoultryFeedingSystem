@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('feed_readings', function (Blueprint $table) {
             $table->id();
-            $table->float('reading');
+            $table->float('trough_reading');
+            $table->float('reservoir_reading');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->foreignId('feed_id')->constrained('feed_model');
