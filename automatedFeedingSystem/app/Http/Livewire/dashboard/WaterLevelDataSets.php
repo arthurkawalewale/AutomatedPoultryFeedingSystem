@@ -32,7 +32,7 @@ class WaterLevelDataSets extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $water_level_data_sets = WaterReading::query()->latest('id')->orderBy('id','desc')->take(6)->get();
+        $water_level_data_sets = WaterReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
 
         $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
             return $water_level_data_sets->created_at->format('H:i');

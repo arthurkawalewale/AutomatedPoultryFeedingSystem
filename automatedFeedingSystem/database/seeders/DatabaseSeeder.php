@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Reading;
+use App\Models\Reservoir;
 use App\Models\WaterReading;
 use App\Models\WaterTank;
 use Database\Factories\WaterTankFactory;
@@ -27,5 +29,9 @@ class DatabaseSeeder extends Seeder
         WaterReading::factory()
             ->count(50) // Generate 50 water readings
             ->create();
+
+        Reservoir::factory(4)->create();
+
+        Reading::factory(50)->create();
     }
 }

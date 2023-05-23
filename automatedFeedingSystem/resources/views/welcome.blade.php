@@ -105,7 +105,11 @@
     <div class="container-fluid">
         <main class="mx-md-4 mt-4">
             <div class="row">
-                <div class="pb-2 col-md-12">
+                <div class="pb-2 col-md-6">
+                    <livewire:dashboard.water-level-data-sets/>
+                </div>
+
+                <div class="pb-2 col-md-6">
                     <livewire:dashboard.water-level-data-sets/>
                 </div>
 
@@ -191,9 +195,9 @@
     </footer>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js">
 
+</script>
 @livewireScripts
 @stack('scripts')
 

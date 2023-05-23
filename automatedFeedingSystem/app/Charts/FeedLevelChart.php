@@ -5,7 +5,7 @@ namespace App\Charts;
 use App\Support\ChartComponentData;
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 
-class WaterLevelChart extends Chart
+class FeedLevelChart extends Chart
 {
     /**
      * Initializes the chart.
@@ -26,10 +26,10 @@ class WaterLevelChart extends Chart
             'scales' => [
                 'y' => [
                     'beginAtZero'   => true,
-                    'max' => 16,
+                    'max' => 30,
                     'min' => 0,
                     'ticks' => [
-                        'stepSize' => 4,
+                        'stepSize' => 5,
                     ],
                 ],
                 'x' => [
@@ -51,7 +51,7 @@ class WaterLevelChart extends Chart
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0.4
+            'tension'                   =>  0
         ]);
     }
 }

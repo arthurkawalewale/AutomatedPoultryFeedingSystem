@@ -1,4 +1,4 @@
-<div wire:poll.100ms>
+<div wire:poll.1s>
 
     <header>
         <h5>Water levels <button id="Rec" class="mx-2">Recording</button></h5>

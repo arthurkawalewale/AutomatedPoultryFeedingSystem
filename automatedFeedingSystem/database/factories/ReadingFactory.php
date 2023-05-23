@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\WaterTank;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\WaterReading>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reading>
  */
-class WaterReadingFactory extends Factory
+class ReadingFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +17,9 @@ class WaterReadingFactory extends Factory
     public function definition(): array
     {
         return [
-            'reading' => $this->faker->randomFloat(2, 0, 16),
+            'reading' => $this->faker->randomFloat(2, 14, 16),
             'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
-            'water_tank_id' => 1,
+            'reservoir_id' => $this->faker->numberBetween(1, 4)
         ];
     }
 }
