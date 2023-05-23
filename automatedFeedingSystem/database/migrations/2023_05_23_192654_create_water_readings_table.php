@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('readings', function (Blueprint $table) {
+        Schema::create('water_readings', function (Blueprint $table) {
             $table->id();
             $table->float('reading');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->foreignId('reservoir_id')->constrained('reservoirs');
+            $table->foreignId('feed_id')->constrained('feed_model');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('readings');
+        Schema::dropIfExists('water_readings');
     }
 };

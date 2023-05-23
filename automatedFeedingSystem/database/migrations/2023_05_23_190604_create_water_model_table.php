@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('water_tanks', function (Blueprint $table) {
+        Schema::create('water_model', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('water_tanks');
+        Schema::dropIfExists('water_model');
     }
 };
