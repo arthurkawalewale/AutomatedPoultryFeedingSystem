@@ -40,7 +40,7 @@ class FeedLevelChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Feed Levels in Reservoir (cm)", "line", $data->datasets()[0])->options([
+        $this->dataset("Reservoir (cm)", "line", $data->datasets()[0])->options([
             'backgroundColor'           => 'rgb(46, 25, 3, 0.4)',
             'fill'                      => true,
             'borderColor'               => 'rgb(46, 25, 3, 0.4)',
@@ -51,7 +51,21 @@ class FeedLevelChart extends Chart
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0
+            'tension'                   =>  0.4
+        ]);
+
+        $this->dataset("Trough (cm)", "line", $data->datasets()[1])->options([
+            'backgroundColor'           => 'rgb(46, 25, 3, 0.7)',
+            'fill'                      => true,
+            'borderColor'               => 'rgb(46, 25, 3, 0.7)',
+            'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
+            'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
+            'pointHoverBackgroundColor' => '#7F9CF5',
+            'pointHoverBorderColor'     => '#7F9CF5',
+            'borderWidth'               => 1,
+            'pointRadius'               => 1,
+            'tooltip'                   => true,
+            'tension'                   =>  0.4
         ]);
     }
 }

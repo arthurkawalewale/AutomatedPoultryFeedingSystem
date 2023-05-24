@@ -49,6 +49,10 @@ class FeedLevelDatasets extends ChartComponent
             $feed_level_datasets->map(function(FeedReading $feed_level_datasets) {
                 return number_format($feed_level_datasets->reservoir_reading, 2, '.', '');
             })->reverse()->values(),
+
+            $feed_level_datasets->map(function(FeedReading $feed_level_datasets) {
+                return number_format($feed_level_datasets->trough_reading, 2, '.', '');
+            })->reverse()->values(),
         ]);
 
         return (new ChartComponentData($labels, $datasets));
