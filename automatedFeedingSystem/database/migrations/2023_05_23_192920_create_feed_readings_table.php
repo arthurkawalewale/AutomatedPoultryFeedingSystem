@@ -17,7 +17,7 @@ return new class extends Migration
             $table->float('reservoir_reading');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->foreignId('feed_id')->constrained('feed_model');
+            $table->foreignId('feed_model_id')->constrained('feed_models');
         });
     }
 

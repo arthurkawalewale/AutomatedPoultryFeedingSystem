@@ -11,7 +11,7 @@ class FeedReading extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reading',
+        'trough_reading','reservoir_reading'
     ];
 
     public function feedModel(): BelongsTo

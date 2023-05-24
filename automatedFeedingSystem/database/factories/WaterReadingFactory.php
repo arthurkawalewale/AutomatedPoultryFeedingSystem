@@ -18,9 +18,10 @@ class WaterReadingFactory extends Factory
     public function definition(): array
     {
         return [
-            'reading' => $this->faker->randomFloat(2, 0, 16),
+            'trough_reading' => $this->faker->randomFloat(2, 0, 16),
+            'reservoir_reading' => $this->faker->randomFloat(2, 0, 16),
             'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
-            'water_tank_id' => 1,
+            'water_model_id' => 1,
         ];
     }
 }

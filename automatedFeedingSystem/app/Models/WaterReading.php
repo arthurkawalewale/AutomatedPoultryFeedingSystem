@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Class WaterReadings
+ * Class WaterReading
  * @package App\Models\WaterReading
  * @property int $id
  * @property string $reading
@@ -18,11 +18,11 @@ class WaterReading extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reading',
+        'trough_reading','reservoir_reading'
     ];
 
-    public function waterTank(): BelongsTo
+    public function waterModel(): BelongsTo
     {
-        return $this->belongsTo(WaterTank::class);
+        return $this->belongsTo(WaterModel::class);
     }
 }

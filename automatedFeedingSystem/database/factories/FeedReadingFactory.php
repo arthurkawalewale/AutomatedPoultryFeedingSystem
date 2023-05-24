@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reading>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\FeedReading>
  */
-class ReadingFactory extends Factory
+class FeedReadingFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,10 @@ class ReadingFactory extends Factory
     public function definition(): array
     {
         return [
-            'reading' => $this->faker->randomFloat(2, 14, 16),
+            'trough_reading' => $this->faker->randomFloat(2, 0, 16),
+            'reservoir_reading' => $this->faker->randomFloat(2, 0, 16),
             'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
-            'reservoir_id' => $this->faker->numberBetween(1, 4)
+            'feed_model_id' => 1
         ];
     }
 }
