@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * Class WaterReading
  * @package App\Models\WaterReading
  * @property int $id
- * @property string $reading
+ * @property string $trough_reading
+ * @property string $reservoir_reading
  */
 class WaterReading extends Model
 {

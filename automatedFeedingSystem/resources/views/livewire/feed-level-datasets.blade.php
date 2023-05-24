@@ -1,3 +1,21 @@
-<div>
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+<div wire:poll.1s>
+
+    <header>
+        <h5>Feed levels<button id="Rec" class="mx-2">Recording</button></h5>
+
+    </header>
+
+    <div wire:ignore>
+        <div wire:key={{ $chart?->id }}>
+            @if($chart)
+                {!! $chart->container() !!}
+            @endif
+        </div>
+    </div>
 </div>
+
+@if($chart)
+    @push('scripts')
+        {!! $chart->script() !!}
+    @endpush
+@endif

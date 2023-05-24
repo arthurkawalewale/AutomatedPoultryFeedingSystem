@@ -40,10 +40,10 @@ class FeedLevelChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Water Levels in Tank (cm)", "line", $data->datasets()[0])->options([
-            'backgroundColor'           => 'rgb(127,156,245, 0.4)',
+        $this->dataset("Feed Levels in Reservoir (cm)", "line", $data->datasets()[0])->options([
+            'backgroundColor'           => 'rgb(46, 25, 3, 0.4)',
             'fill'                      => true,
-            'borderColor'               => '#7F9CF5',
+            'borderColor'               => 'rgb(46, 25, 3, 0.4)',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
             'pointHoverBackgroundColor' => '#7F9CF5',

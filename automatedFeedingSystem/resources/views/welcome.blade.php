@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="pb-2 col-md-6">
-                    <livewire:dashboard.water-level-data-sets/>
+                    <livewire:dashboard.feed-level-datasets/>
                 </div>
 
             </div>

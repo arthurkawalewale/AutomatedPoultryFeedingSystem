@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\dashboard;
 
 use App\Charts\FeedLevelChart;
-use App\Models\FeedReservoirReading;
+use App\Models\FeedReading;
 use App\Support\ChartComponent;
 use App\Support\ChartComponentData;
 use Illuminate\Support\Collection;
@@ -37,17 +37,17 @@ class FeedLevelDatasets extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $feed_level_datasets = FeedReservoirReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
+        $feed_level_datasets = FeedReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
 
-        $labels = $feed_level_datasets->map(function(FeedReservoirReading $feed_level_datasets, $key) {
+        $labels = $feed_level_datasets->map(function(FeedReading $feed_level_datasets, $key) {
             return $feed_level_datasets->created_at->format('H:i');
         });
 
         $labels = $labels->reverse()->values();
 
         $datasets = new Collection([
-            $feed_level_datasets->map(function(FeedReservoirReading $feed_level_datasets) {
-                return number_format($feed_level_datasets->reading, 2, '.', '');
+            $feed_level_datasets->map(function(FeedReading $feed_level_datasets) {
+                return number_format($feed_level_datasets->reservoir_reading, 2, '.', '');
             })->reverse()->values(),
         ]);
 

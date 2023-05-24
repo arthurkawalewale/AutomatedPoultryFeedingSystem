@@ -34,6 +34,8 @@ class WaterLevelDataSets extends ChartComponent
     {
         $water_level_data_sets = WaterReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
 
+        //dd($water_level_data_sets);
+
         $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
             return $water_level_data_sets->created_at->format('H:i');
         });
@@ -42,9 +44,11 @@ class WaterLevelDataSets extends ChartComponent
 
         $datasets = new Collection([
             $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
-                return number_format($water_level_data_sets->reading, 2, '.', '');
+                return number_format($water_level_data_sets->reservoir_reading, 2, '.', '');
             })->reverse()->values(),
         ]);
+
+        //dd($datasets);
 
         return (new ChartComponentData($labels, $datasets));
     }
