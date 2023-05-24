@@ -1,10 +1,5 @@
 <div wire:poll.1s>
 
-    <header>
-        <h5>Water levels <button id="Rec" class="mx-2">Recording</button></h5>
-
-    </header>
-
     <div wire:ignore>
         <div wire:key={{ $chart?->id }}>
             @if($chart)

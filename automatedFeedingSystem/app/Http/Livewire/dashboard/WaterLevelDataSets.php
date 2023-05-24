@@ -46,6 +46,10 @@ class WaterLevelDataSets extends ChartComponent
             $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
                 return number_format($water_level_data_sets->reservoir_reading, 2, '.', '');
             })->reverse()->values(),
+
+            $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
+                return number_format($water_level_data_sets->trough_reading, 2, '.', '');
+            })->reverse()->values(),
         ]);
 
         //dd($datasets);
