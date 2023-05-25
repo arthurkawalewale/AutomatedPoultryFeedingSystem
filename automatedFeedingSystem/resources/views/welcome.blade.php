@@ -124,21 +124,23 @@
                     <div class="dropdown">
                     <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                         <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
-                        This week
+                        Weekly
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">Last Month</a></li>
-                        <li><a class="dropdown-item" href="#">This year</a></li>
-                        <li><a class="dropdown-item" href="#">Last year</a></li>
+                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                        <li><a class="dropdown-item" href="#">Yearly</a></li>
                     </ul>
                 </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <!--<div class="col-md-6">
                     <canvas class="my-4 w-100" id="myChart" width="450" height="250"></canvas>
+                </div>-->
+
+                <div class="col-md-6">
+                    {!! $weekly_chart->container() !!}
                 </div>
 
                 <div class="col-md-6">

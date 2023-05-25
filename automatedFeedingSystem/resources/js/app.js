@@ -16,7 +16,7 @@ import 'feather-icons';
 
     chart.data.labels = labels;
 
-    console.log(chart)
+    //console.log(chart)
     //alert("I'm here");
     chart.update();
 });
