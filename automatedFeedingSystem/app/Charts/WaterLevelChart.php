@@ -20,9 +20,6 @@ class WaterLevelChart extends Chart
 
         $this->options([
             'maintainAspectRatio' => false,
-            'legend' => [
-                'display' => false,
-            ],
             'scales' => [
                 'y' => [
                     'beginAtZero'   => true,
@@ -31,23 +28,33 @@ class WaterLevelChart extends Chart
                     'ticks' => [
                         'stepSize' => 4,
                     ],
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'water volume',
+                    ],
                 ],
                 'x' => [
                     'display' => true,
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'Time recorded',
+                    ],
                 ],
             ],
         ]);
 
         $this->labels($data->labels());
 
-        $this->dataset("Tank (cm)", "line", $data->datasets()[0])->options([
-            'backgroundColor'           => 'rgb(127,156,245, 0.4)',
+        $this->dataset("Reservoir (cm)", "line", $data->datasets()[0])->options([
+            'backgroundColor'           => 'rgb(17, 122, 45, 0.4)',
             'fill'                      => true,
-            'borderColor'               => '#7F9CF5',
+            'borderColor'               => 'rgb(17, 122, 45, 0.4)',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
-            'pointHoverBackgroundColor' => '#7F9CF5',
-            'pointHoverBorderColor'     => '#7F9CF5',
+            'pointHoverBackgroundColor' => '#117a2d',
+            'pointHoverBorderColor'     => 'black',
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,
@@ -60,8 +67,8 @@ class WaterLevelChart extends Chart
             'borderColor'               => '#A3BFFA',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
-            'pointHoverBackgroundColor' => '##A3BFFA',
-            'pointHoverBorderColor'     => '##A3BFFA',
+            'pointHoverBackgroundColor' => '#A3BFFA',
+            'pointHoverBorderColor'     => '#A3BFFA',
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,

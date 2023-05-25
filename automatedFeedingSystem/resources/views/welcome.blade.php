@@ -106,7 +106,7 @@
         <main class="mx-md-4 mt-4">
             <div class="row">
                 <header>
-                    <h5>Monitoring <button id="Rec" class="mx-2">Recording</button></h5>
+                    <h5 class="text-bold">Monitoring <button id="Rec" class="mx-2">Recording</button></h5>
                 </header>
 
                 <div class="pb-2 col-md-6">

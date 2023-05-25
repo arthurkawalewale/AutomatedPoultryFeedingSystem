@@ -31,9 +31,19 @@ class FeedLevelChart extends Chart
                     'ticks' => [
                         'stepSize' => 5,
                     ],
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'Feed Volume',
+                    ],
                 ],
                 'x' => [
                     'display' => true,
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'Time Recorded',
+                    ],
                 ],
             ],
         ]);
@@ -41,9 +51,9 @@ class FeedLevelChart extends Chart
         $this->labels($data->labels());
 
         $this->dataset("Reservoir (cm)", "line", $data->datasets()[0])->options([
-            'backgroundColor'           => 'rgb(46, 25, 3, 0.4)',
+            'backgroundColor'           => 'rgb(77, 77, 82, 0.4)',
             'fill'                      => true,
-            'borderColor'               => 'rgb(46, 25, 3, 0.4)',
+            'borderColor'               => 'rgb(77, 77, 82, 0.4)',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
             'pointHoverBackgroundColor' => '#7F9CF5',
@@ -55,9 +65,9 @@ class FeedLevelChart extends Chart
         ]);
 
         $this->dataset("Trough (cm)", "line", $data->datasets()[1])->options([
-            'backgroundColor'           => 'rgb(46, 25, 3, 0.7)',
+            'backgroundColor'           => 'rgb(199, 12, 40, 0.7)',
             'fill'                      => true,
-            'borderColor'               => 'rgb(46, 25, 3, 0.7)',
+            'borderColor'               => 'rgb(199, 12, 40, 0.7)',
             'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
             'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
             'pointHoverBackgroundColor' => '#7F9CF5',
