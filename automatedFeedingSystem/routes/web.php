@@ -14,11 +14,11 @@ use App\Http\Controllers\ReportsController;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
-Route::get('/', [ReportsController::class, 'index']);
+//Route::get('/', [ReportsController::class, 'index']);
 
 //Auth::routes();
 

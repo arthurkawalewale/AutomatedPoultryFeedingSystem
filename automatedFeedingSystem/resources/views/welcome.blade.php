@@ -135,12 +135,9 @@
             </div>
 
             <div class="row">
-                <!--<div class="col-md-6">
-                    <canvas class="my-4 w-100" id="myChart" width="450" height="250"></canvas>
-                </div>-->
-
                 <div class="col-md-6">
-                    {!! $weekly_chart->container() !!}
+                    <canvas class="my-4 w-100" id="myChart" width="450" height="250"></canvas>
+                    <livewire:dashboard.water-level-stats/>
                 </div>
 
                 <div class="col-md-6">
