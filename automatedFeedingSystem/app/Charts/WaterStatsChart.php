@@ -31,7 +31,7 @@ class WaterStatsChart extends Chart
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'water volume',
+                        'text' => 'Water volume',
                     ],
                 ],
                 'x' => [
@@ -39,7 +39,7 @@ class WaterStatsChart extends Chart
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'Time recorded',
+                        'text' => 'Time Recorded',
                     ],
                 ],
             ],
