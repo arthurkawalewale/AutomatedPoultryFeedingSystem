@@ -122,15 +122,15 @@
             <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="dropdown">
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                        <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
-                        Weekly
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Monthly</a></li>
-                        <li><a class="dropdown-item" href="#">Yearly</a></li>
-                    </ul>
-                </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
+                            Weekly
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Monthly</a></li>
+                            <li><a class="dropdown-item" href="#">Yearly</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

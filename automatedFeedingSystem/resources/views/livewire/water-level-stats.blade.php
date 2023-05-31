@@ -1,5 +1,4 @@
-<div wire:poll.10s>
-
+<div>
     <header>
         <h6 class="text-center">Water Levels</h6>
     </header>
