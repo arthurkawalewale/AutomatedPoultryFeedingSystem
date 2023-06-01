@@ -119,28 +119,43 @@
 
             </div>
 
-            <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                            <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
-                            Weekly
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Monthly</a></li>
-                            <li><a class="dropdown-item" href="#">Yearly</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-md-6">
+                    <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
+                                    Weekly
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                    <li><a class="dropdown-item" href="#">Yearly</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <!--<canvas class="my-4 w-100" id="myChart" width="450" height="250"></canvas>-->
                     <livewire:dashboard.water-level-stats/>
                 </div>
 
                 <div class="col-md-6">
+
+                    <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
+                                    Weekly
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                    <li><a class="dropdown-item" href="#">Yearly</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <canvas class="my-4 w-100" id="myGraph" width=450" height="250"></canvas>
                 </div>
             </div>
