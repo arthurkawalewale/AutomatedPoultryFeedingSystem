@@ -1,6 +1,6 @@
 <div>
     <header>
-        <h6 class="text-center">Water Levels</h6>
+        <h6 class="text-center">Water Report</h6>
     </header>
 
     <div wire:ignore>
