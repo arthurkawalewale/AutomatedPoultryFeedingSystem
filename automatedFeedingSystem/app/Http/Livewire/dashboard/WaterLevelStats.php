@@ -34,12 +34,17 @@ class WaterLevelStats extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
+        $interval = 'weekly'; // The selected interval (e.g., weekly, monthly, yearly)
+
         // Get the start and end dates for the desired week
         $startDate = Carbon::now()->startOfWeek();
         $endDate = Carbon::now()->endOfWeek();
 
+        $currentYear = date('Y');
+        $startingYear = $currentYear - 5;
+
         // Retrieve records for the specified week
-        $water_level_data_sets = DB::table(DB::raw("(SELECT 'Sunday' AS day_of_week UNION ALL SELECT 'Monday' UNION ALL SELECT 'Tuesday' UNION ALL SELECT 'Wednesday' UNION ALL SELECT 'Thursday' UNION ALL SELECT 'Friday' UNION ALL SELECT 'Saturday') AS days_of_week"))
+        /*$water_level_data_sets = DB::table(DB::raw("(SELECT 'Sunday' AS day_of_week UNION ALL SELECT 'Monday' UNION ALL SELECT 'Tuesday' UNION ALL SELECT 'Wednesday' UNION ALL SELECT 'Thursday' UNION ALL SELECT 'Friday' UNION ALL SELECT 'Saturday') AS days_of_week"))
             ->leftJoin(DB::raw("(SELECT DAYNAME(created_at) AS day_of_week, AVG(reservoir_reading) AS avg_reservoir, AVG(trough_reading) AS avg_trough FROM water_readings WHERE created_at BETWEEN '{$startDate}' AND '{$endDate}' GROUP BY day_of_week) AS averages"), 'days_of_week.day_of_week', '=', 'averages.day_of_week')
             ->select('days_of_week.day_of_week', DB::raw('COALESCE(averages.avg_reservoir, 0) AS avg_reservoir'), DB::raw('COALESCE(averages.avg_trough, 0) AS avg_trough'))
             ->get();
@@ -65,8 +70,125 @@ class WaterLevelStats extends ChartComponent
             $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
                 return number_format($water_level_data_sets->avg_trough, 2, '.', '');
             }),
+        ]);*/
+
+
+        //Return data belonging to several months in a year.
+
+        /*$water_level_data_sets = DB::table(DB::raw("(SELECT 'January' AS month UNION ALL SELECT 'February' UNION ALL SELECT 'March' UNION ALL SELECT 'April' UNION ALL SELECT 'May' UNION ALL SELECT 'June' UNION ALL SELECT 'July' UNION ALL SELECT 'August' UNION ALL SELECT 'September' UNION ALL SELECT 'October' UNION ALL SELECT 'November' UNION ALL SELECT 'December') AS months"))
+            ->leftJoin(DB::raw("(SELECT MONTHNAME(created_at) AS month, AVG(reservoir_reading) AS avg_reservoir, AVG(trough_reading) AS avg_trough FROM water_readings WHERE YEAR(created_at) = 2023 GROUP BY month) AS averages"), 'months.month', '=', 'averages.month')
+            ->select('months.month', DB::raw('COALESCE(averages.avg_reservoir, 0) AS avg_reservoir'), DB::raw('COALESCE(averages.avg_trough, 0) AS avg_trough'))
+            ->get();
+
+        // Convert the stdClass objects to WaterReading models
+        $water_level_data_sets = $water_level_data_sets->map(function ($item) {
+            $waterReading = new WaterReading();
+            $waterReading->month = $item->month;
+            $waterReading->avg_reservoir = $item->avg_reservoir;
+            $waterReading->avg_trough = $item->avg_trough;
+            return $waterReading;
+        });
+
+        $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
+            return $water_level_data_sets->month;
+        });
+
+        //dd($labels);
+
+        $datasets = new Collection([
+            $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
+                return number_format($water_level_data_sets->avg_reservoir, 2, '.', '');
+            }),
+
+            $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
+                return number_format($water_level_data_sets->avg_trough, 2, '.', '');
+            }),
+        ]);*/
+
+        //dd($water_level_data_sets);
+
+        /*$water_level_data_sets = DB::table('water_readings')
+            ->select(DB::raw('YEAR(created_at) AS year'), DB::raw('AVG(reservoir_reading) AS avg_reservoir'), DB::raw('AVG(trough_reading) AS avg_trough'))
+            ->whereBetween(DB::raw('YEAR(created_at)'), [$startingYear, $currentYear])
+            ->groupBy(DB::raw('YEAR(created_at)'))
+            ->get();
+
+        // Convert the stdClass objects to WaterReading models
+        $water_level_data_sets = $water_level_data_sets->map(function ($item) {
+            $waterReading = new WaterReading();
+            $waterReading->year = $item->year;
+            $waterReading->avg_reservoir = $item->avg_reservoir;
+            $waterReading->avg_trough = $item->avg_trough;
+            return $waterReading;
+        });*/
+
+
+        //dd($water_level_data_sets);
+
+        /*$labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
+            return $water_level_data_sets->year;
+        });*/
+
+        //dd($labels);
+
+        $water_level_data_sets = collect();
+
+        //dd($interval);
+
+        if ($interval === 'weekly') {
+            $water_level_data_sets = DB::table(DB::raw("(SELECT 'Sunday' AS day_of_week UNION ALL SELECT 'Monday' UNION ALL SELECT 'Tuesday' UNION ALL SELECT 'Wednesday' UNION ALL SELECT 'Thursday' UNION ALL SELECT 'Friday' UNION ALL SELECT 'Saturday') AS days_of_week"))
+                ->leftJoin(DB::raw("(SELECT DAYNAME(created_at) AS day_of_week, AVG(reservoir_reading) AS avg_reservoir, AVG(trough_reading) AS avg_trough FROM water_readings WHERE created_at BETWEEN '{$startDate}' AND '{$endDate}' GROUP BY day_of_week) AS averages"), 'days_of_week.day_of_week', '=', 'averages.day_of_week')
+                ->select('days_of_week.day_of_week', DB::raw('COALESCE(averages.avg_reservoir, 0) AS avg_reservoir'), DB::raw('COALESCE(averages.avg_trough, 0) AS avg_trough'))
+                ->get();
+        }elseif ($interval === 'monthly') {
+            $water_level_data_sets = DB::table(DB::raw("(SELECT 'January' AS month UNION ALL SELECT 'February' UNION ALL SELECT 'March' UNION ALL SELECT 'April' UNION ALL SELECT 'May' UNION ALL SELECT 'June' UNION ALL SELECT 'July' UNION ALL SELECT 'August' UNION ALL SELECT 'September' UNION ALL SELECT 'October' UNION ALL SELECT 'November' UNION ALL SELECT 'December') AS months"))
+                ->leftJoin(DB::raw("(SELECT MONTHNAME(created_at) AS month, AVG(reservoir_reading) AS avg_reservoir, AVG(trough_reading) AS avg_trough FROM water_readings WHERE YEAR(created_at) = 2023 GROUP BY month) AS averages"), 'months.month', '=', 'averages.month')
+                ->select('months.month', DB::raw('COALESCE(averages.avg_reservoir, 0) AS avg_reservoir'), DB::raw('COALESCE(averages.avg_trough, 0) AS avg_trough'))
+                ->get();
+
+            //dd("I'm here");
+        }elseif ($interval === 'yearly') {
+            $water_level_data_sets = DB::table('water_readings')
+                ->select(DB::raw('YEAR(created_at) AS year'), DB::raw('AVG(reservoir_reading) AS avg_reservoir'), DB::raw('AVG(trough_reading) AS avg_trough'))
+                ->whereBetween(DB::raw('YEAR(created_at)'), [$startingYear, $currentYear])
+                ->groupBy(DB::raw('YEAR(created_at)'))
+                ->get();
+        }
+
+
+        // Convert the stdClass objects to WaterReading models
+        $water_level_data_sets = $water_level_data_sets->map(function ($item) use ($interval) {
+            $waterReading = new WaterReading();
+            $waterReading->time = $interval === 'weekly' ? $item->day_of_week : ($interval === 'monthly' ? $item->month : $item->year);
+            $waterReading->avg_reservoir = $item->avg_reservoir;
+            $waterReading->avg_trough = $item->avg_trough;
+            return $waterReading;
+        });
+
+        $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
+            return $water_level_data_sets->time;
+        });
+
+        //dd($labels);
+
+        //dd($water_level_data_sets);
+
+        $datasets = new Collection([
+            $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
+                return number_format($water_level_data_sets->avg_reservoir, 2, '.', '');
+            }),
+
+            $water_level_data_sets->map(function(WaterReading $water_level_data_sets) {
+                return number_format($water_level_data_sets->avg_trough, 2, '.', '');
+            }),
         ]);
 
         return (new ChartComponentData($labels, $datasets));
     }
+
+    /*private function fetchMonthly(): array
+    {
+
+
+    }*/
 }

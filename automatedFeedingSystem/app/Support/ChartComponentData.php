@@ -4,6 +4,7 @@ namespace App\Support;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
+use PhpParser\Node\Scalar\String_;
 
 /**
  * Class ChartComponentData
@@ -17,6 +18,11 @@ class ChartComponentData implements Arrayable
      * @var \Illuminate\Support\Collection
      */
     private Collection $labels;
+
+    /**
+     * @var String
+     */
+    private String $interval;
 
     /**
      * @var \Illuminate\Support\Collection
@@ -68,5 +74,10 @@ class ChartComponentData implements Arrayable
     public function datasets(): Collection
     {
         return $this->datasets;
+    }
+
+    public function interval(): String
+    {
+        return $this->interval;
     }
 }
