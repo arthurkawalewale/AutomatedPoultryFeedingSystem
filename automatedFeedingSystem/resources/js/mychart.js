@@ -1,5 +1,5 @@
 // Graphs
-const ctx = document.getElementById('myChart')
+/*const ctx = document.getElementById('myChart')
 
 const grp = document.getElementById('myGraph')
 
@@ -91,4 +91,4 @@ const myGraph = new Chart(grp, {
             }
         }
     }
-})
+})*/

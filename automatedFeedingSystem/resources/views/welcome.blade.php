@@ -95,9 +95,9 @@
                         </a>
                     </li>
                 </ul>
-                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <!--<div class="d-lg-flex col-lg-3 justify-content-lg-end">
                     <button class="btn btn-primary"><x-feathericon-log-out class="align-text-bottom" style="height: 20px"/> Log out</button>
-                </div>
+                </div>-->
             </div>
         </div>
     </nav>
@@ -119,14 +119,14 @@
 
             </div>
 
-            <div class="row">
+            <div class="row g-5">
                 <div class="col-md-6">
                     <div id="reports" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="dropdown">
                                 <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                                     <x-feathericon-calendar class="align-text-bottom" style="height: 20px"/>
-                                    Weekly
+                                    This Week
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Monthly</a></li>
@@ -156,7 +156,8 @@
                         </div>
                     </div>
 
-                    <canvas class="my-4 w-100" id="myGraph" width=450" height="250"></canvas>
+                    <!--<canvas class="my-4 w-100" id="myGraph" width=450" height="250"></canvas>-->
+                    <livewire:dashboard.feed-level-stats/>
                 </div>
             </div>
 

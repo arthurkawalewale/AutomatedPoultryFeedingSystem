@@ -11,14 +11,16 @@
         </div>
     </div>
 
-    <div>
+    <!--<div>
         <label for="interval">Select Interval:</label>
         <select wire:model="interval" id="interval">
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
         </select>
-    </div>
+    </div>-->
+
+   <!-- <button wire:click="handleButtonClick('Hello Arthur)">Click me</button>-->
 </div>
 
 @if($chart)
@@ -26,5 +28,3 @@
         {!! $chart->script() !!}
     @endpush
 @endif
-
-

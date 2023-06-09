@@ -76,8 +76,8 @@ class ChartComponentData implements Arrayable
         return $this->datasets;
     }
 
-    public function interval(): String
+    public function interval($interval): String
     {
-        return $this->interval;
+        return $interval;
     }
 }
