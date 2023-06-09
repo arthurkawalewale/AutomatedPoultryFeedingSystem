@@ -23,7 +23,7 @@ class WaterStatsChart extends Chart
             'scales' => [
                 'y' => [
                     'beginAtZero'   => true,
-                    'max' => 16,
+                    'max' => 20,
                     'min' => 0,
                     'ticks' => [
                         'stepSize' => 4,

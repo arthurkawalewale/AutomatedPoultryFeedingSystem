@@ -23,10 +23,10 @@ class FeedStatsChart extends Chart
             'scales' => [
                 'y' => [
                     'beginAtZero'   => true,
-                    'max' => 16,
+                    'max' => 30,
                     'min' => 0,
                     'ticks' => [
-                        'stepSize' => 4,
+                        'stepSize' => 5,
                     ],
                     'title' => [
                         'display' => true,
