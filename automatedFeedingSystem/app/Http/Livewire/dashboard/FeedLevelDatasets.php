@@ -6,6 +6,7 @@ use App\Charts\FeedLevelChart;
 use App\Models\FeedReading;
 use App\Support\ChartComponent;
 use App\Support\ChartComponentData;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
@@ -37,7 +38,18 @@ class FeedLevelDatasets extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $feed_level_datasets = FeedReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
+        //$feed_level_datasets = FeedReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
+
+        $startOfDay = Carbon::today()->startOfDay();
+        $endOfDay = Carbon::today()->endOfDay();
+
+        $feed_level_datasets = FeedReading::query()
+            ->whereBetween('created_at', [$startOfDay, $endOfDay])
+            ->orderBy('id', 'desc')
+            ->latest('id')
+            ->take(5)
+            ->get();
+
 
         $labels = $feed_level_datasets->map(function(FeedReading $feed_level_datasets, $key) {
             return $feed_level_datasets->created_at->format('H:i');
