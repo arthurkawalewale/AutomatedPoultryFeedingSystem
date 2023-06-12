@@ -6,7 +6,7 @@ namespace Database\Seeders;
 use App\Models\FeedModel;
 use App\Models\WaterReading;
 use App\Models\WaterModel;
-use App\Models\WaterReading;
+use App\Models\FeedReading;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         FeedModel::factory(1)->create();
         WaterModel::factory(1)->create();
 
-        WaterReading::factory(50)->create();
+        FeedReading::factory(50)->create();
         WaterReading::factory(50)->create();
     }
 }
