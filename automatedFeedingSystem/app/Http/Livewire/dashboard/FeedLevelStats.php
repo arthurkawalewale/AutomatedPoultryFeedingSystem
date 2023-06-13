@@ -13,7 +13,8 @@ use Livewire\Component;
 
 class FeedLevelStats extends ChartComponent
 {
-    private $interval = "weekly";
+    public $interval = "weekly";
+    public $intervals = array("weekly"=>'This Week', "monthly"=>'Monthly', "yearly"=>'Yearly');
 
     /**
      * @return string

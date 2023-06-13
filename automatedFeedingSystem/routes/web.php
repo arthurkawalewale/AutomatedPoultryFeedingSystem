@@ -15,7 +15,7 @@ use App\Http\Controllers\ReportsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 //Route::get('/', [ReportsController::class, 'index']);

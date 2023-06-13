@@ -13,14 +13,8 @@ use Livewire\Component;
 
 class WaterLevelStats extends ChartComponent
 {
-
-    private $interval = "weekly";
-
-    /*public function handleButtonClick($data)
-    {
-        dd($data);
-    }*/
-
+    public $interval = "weekly";
+    public $intervals = array("weekly"=>'This Week', "monthly"=>'Monthly', "yearly"=>'Yearly');
 
     /**
      * @return string
@@ -65,8 +59,6 @@ class WaterLevelStats extends ChartComponent
                 ->leftJoin(DB::raw("(SELECT MONTHNAME(created_at) AS month, AVG(reservoir_reading) AS avg_reservoir, AVG(trough_reading) AS avg_trough FROM water_readings WHERE YEAR(created_at) = 2023 GROUP BY month) AS averages"), 'months.month', '=', 'averages.month')
                 ->select('months.month', DB::raw('COALESCE(averages.avg_reservoir, 0) AS avg_reservoir'), DB::raw('COALESCE(averages.avg_trough, 0) AS avg_trough'))
                 ->get();
-
-            //dd("I'm here");
         }elseif ($interval === 'yearly') {
             $water_level_data_sets = DB::table('water_readings')
                 ->select(DB::raw('YEAR(created_at) AS year'), DB::raw('AVG(reservoir_reading) AS avg_reservoir'), DB::raw('AVG(trough_reading) AS avg_trough'))
