@@ -177,7 +177,7 @@
         </main>
     </div>
 
-    <button onclick="topFunction()" id="myBtn" class="btn btn-sm btn-primary" title="Go to top">Top</button>
+    <button onclick="topFunction()" id="myBtn" class="btn btn-sm btn-primary" title="Go to top"><x-feathericon-chevron-up style="height: 40px"/></button>
 
     <footer class="footer bg-dark container-fluid overflow-hidden">
         <hr>
