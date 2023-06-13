@@ -31,7 +31,7 @@ class WaterStatsChart extends Chart
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'Water volume',
+                        'text' => 'Average Water volume',
                     ],
                 ],
                 'x' => [

@@ -31,7 +31,7 @@ class FeedStatsChart extends Chart
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'Feed volume',
+                        'text' => 'Average Feed volume',
                     ],
                 ],
                 'x' => [
