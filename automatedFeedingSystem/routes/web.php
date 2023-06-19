@@ -22,4 +22,4 @@ use App\Http\Controllers\ReportsController;
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
