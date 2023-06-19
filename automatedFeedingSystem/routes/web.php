@@ -14,12 +14,12 @@ use App\Http\Controllers\ReportsController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('dashboard');
-});
+});*/
 
 //Route::get('/', [ReportsController::class, 'index']);
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
