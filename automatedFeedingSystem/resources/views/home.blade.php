@@ -54,20 +54,12 @@
 
         <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
             <div class="col-lg-6">
-
                 <form class="border p-4 rounded-5">
                     <fieldset>
-                        <legend>
-                            System control
-                            <div class="form-check form-switch d-inline-block align-text-bottom">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                            </div>
-                        </legend>
-
                         <div class="row">
                             <div class="col-md-6">
                                 <fieldset>
-                                    <legend><h5>Servo Motor</h5></legend>
+                                    <legend><h5>Water Valve</h5></legend>
                                     <div class="form-check form-switch d-inline-block align-text-bottom">
                                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                                     </div>
@@ -76,7 +68,7 @@
 
                             <div class="col-md-6">
                                 <fieldset>
-                                    <legend><h5>Water Trough Sensor</h5></legend>
+                                    <legend><h5>Feed Valve</h5></legend>
                                     <div class="form-check form-switch d-inline-block align-text-bottom">
                                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                                     </div>
