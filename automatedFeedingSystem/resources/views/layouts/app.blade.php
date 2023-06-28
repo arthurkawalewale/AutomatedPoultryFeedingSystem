@@ -75,28 +75,27 @@
                 </button>
 
                 <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                    <h1 class="h2 text-light col-lg-3 me-0">Dashboard</h1>
+                    <h1 class="h3 col-lg-3 me-0">
+                        <a href="/" class="text-light" style="text-decoration:none">Dashboard</a>
+                    </h1>
                     @guest
 
                     @else
                         <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                             <li class="nav-item">
-                                <a class="nav-link" href="#reports">
+                                <a class="nav-link" href="/#reports">
                                     <x-feathericon-bar-chart-2 class="align-text-bottom" style="height: 20px"/>
                                     Statistics
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#controls">
+                                <a class="nav-link" href="/#controls">
                                     <x-feathericon-settings class="align-text-bottom" style="height: 20px"/>
                                     Controls
                                 </a>
                             </li>
                         </ul>
                     @endguest
-                    <!--<div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                        <button class="btn btn-primary"><x-feathericon-log-out class="align-text-bottom" style="height: 20px"/> Log out</button>
-                    </div>-->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -114,9 +113,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profile">
+                                        <x-feathericon-user class="align-text-bottom" style="height: 20px"/>
+                                        Profile
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <x-feathericon-log-out class="align-text-bottom" style="height: 20px"/>
                                         {{ __('Logout') }}
                                     </a>
 
@@ -125,6 +130,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>
@@ -138,10 +144,10 @@
     </div>
     @guest
     @else
-    <footer class="footer bg-dark container-fluid overflow-hidden">
-        <hr>
-        <p class="text-muted text-center">Copyright &copy; <?php echo date('Y');?> - All Rights Reserved</p>
-    </footer>
+        <footer class="footer bg-dark container-fluid overflow-hidden">
+            <hr>
+            <p class="text-muted text-center">Copyright &copy; <?php echo date('Y');?> - All Rights Reserved</p>
+        </footer>
     @endguest
 </body>
 
