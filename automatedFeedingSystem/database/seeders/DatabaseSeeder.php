@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\FeedModel;
+use App\Models\WaterReading;
+use App\Models\WaterModel;
+use App\Models\FeedReading;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +22,21 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        /*WaterTank::factory(1)->create();
+
+        WaterReading::factory()
+            ->count(50) // Generate 50 water readings
+            ->create();
+
+        Reservoir::factory(4)->create();
+
+        Reading::factory(50)->create();*/
+
+        FeedModel::factory(1)->create();
+        WaterModel::factory(1)->create();
+
+        FeedReading::factory(50)->create();
+        WaterReading::factory(50)->create();
     }
 }

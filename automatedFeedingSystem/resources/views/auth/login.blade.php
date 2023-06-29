@@ -2,8 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-8">
+
+            <header class="text-center mb-5">
+                <h3>Welcome to autofeedingsystem</h3>
+            </header>
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

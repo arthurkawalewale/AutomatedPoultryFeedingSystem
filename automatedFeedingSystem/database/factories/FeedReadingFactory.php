@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\WaterReading>
+ */
+class FeedReadingFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'trough_reading' => $this->faker->randomFloat(2, 0, 16),
+            'reservoir_reading' => $this->faker->randomFloat(2, 0, 16),
+            'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
+            'number_of_birds' => $this->faker->numberBetween('0','20'),
+            'feed_model_id' => 1
+        ];
+    }
+}
