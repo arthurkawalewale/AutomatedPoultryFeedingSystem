@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="Arthur Kawalewale, Gift Alufandika, Sydney Chabuka and Chimwemwe Thayo">
     <meta name="generator" content="Hugo 0.111.3">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Dashboard</title>
 
     <style>
