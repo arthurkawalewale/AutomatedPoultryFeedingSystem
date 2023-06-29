@@ -17,10 +17,10 @@ class FeedReadingFactory extends Factory
     public function definition(): array
     {
         return [
-            'trough_reading' => $this->faker->randomFloat(2, 0, 16),
-            'reservoir_reading' => $this->faker->randomFloat(2, 0, 16),
-            'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
-            'number_of_birds' => $this->faker->numberBetween('0','20'),
+            'trough_reading' => fake()->randomFloat(2, 0, 16),
+            'reservoir_reading' => fake()->randomFloat(2, 0, 16),
+            'created_at' => fake()->dateTimeBetween('-30 days', 'now'),
+            'number_of_birds' => fake()->numberBetween('0','20'),
             'feed_model_id' => 1
         ];
     }
