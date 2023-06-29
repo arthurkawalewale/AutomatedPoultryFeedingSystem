@@ -34,6 +34,19 @@ class WaterStatsChart extends Chart
                         'text' => 'Average Water volume',
                     ],
                 ],
+                'percentage' => [
+                    'position' => 'right',
+                    'max' => 20,
+                    'min' => 0,
+                    'ticks' => [
+                        'stepSize' => 4,
+                    ],
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'No. of Chicken',
+                    ],
+                ],
                 'x' => [
                     'display' => true,
                     'title' => [
@@ -58,7 +71,7 @@ class WaterStatsChart extends Chart
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0.4
+            'yAxisID'                   => 'y'
         ]);
 
         $this->dataset("Trough (cm)", "bar", $data->datasets()[1])->options([
@@ -72,7 +85,25 @@ class WaterStatsChart extends Chart
             'borderWidth'               => 1,
             'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0.4
+            'yAxisID'                   => 'y'
+        ]);
+
+        $this->dataset('No. of Chicken', 'line', $data->datasets()[2])->options([
+            'backgroundColor'           => 'rgb(217, 146, 15, 0.7)',
+            'borderColor'               => 'rgb(217, 146, 15, 0.7)',
+            'pointBackgroundColor'      => 'rgb(217, 146, 15)',
+            'pointBorderColor'          => 'rgb(217, 146, 15)',
+            'pointHoverBorderWidth'     => 1,
+            'pointHoverRadius'          => 3,
+            'pointRadius'               => 2,
+            'borderWidth'               => 2,
+            'pointBorderWidth'          => 1,
+            'pointHitRadius'            => 2,
+            'pointStyle'                => 'circle',
+            'tooltip'                   => true,
+            'tension'                   =>  0.1,
+            'yAxisID'                   => 'percentage',
+            'showLine'                  => false
         ]);
     }
 }

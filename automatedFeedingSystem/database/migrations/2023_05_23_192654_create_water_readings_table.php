@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->foreignId('water_model_id')->constrained('water_models');
+            $table->integer('number_of_birds');
         });
     }
 
