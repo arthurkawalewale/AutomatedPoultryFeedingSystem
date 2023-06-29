@@ -23,16 +23,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        /*WaterTank::factory(1)->create();
-
-        WaterReading::factory()
-            ->count(50) // Generate 50 water readings
-            ->create();
-
-        Reservoir::factory(4)->create();
-
-        Reading::factory(50)->create();*/
-
         FeedModel::factory(1)->create();
         WaterModel::factory(1)->create();
 
