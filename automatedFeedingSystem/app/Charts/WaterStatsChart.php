@@ -52,7 +52,7 @@ class WaterStatsChart extends Chart
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'Time Recorded',
+                        'text' => 'Time',
                     ],
                 ],
             ],
@@ -64,12 +64,6 @@ class WaterStatsChart extends Chart
             'backgroundColor'           => 'rgb(17, 122, 45, 0.4)',
             'fill'                      => true,
             'borderColor'               => 'rgb(17, 122, 45, 0.4)',
-            'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
-            'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
-            'pointHoverBackgroundColor' => '#117a2d',
-            'pointHoverBorderColor'     => 'black',
-            'borderWidth'               => 1,
-            'pointRadius'               => 1,
             'tooltip'                   => true,
             'yAxisID'                   => 'y'
         ]);

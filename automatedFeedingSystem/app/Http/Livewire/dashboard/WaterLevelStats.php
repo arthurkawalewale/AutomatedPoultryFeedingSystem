@@ -77,8 +77,6 @@ class WaterLevelStats extends ChartComponent
             return $waterReading;
         });
 
-        //dd($water_level_data_sets);
-
         $labels = $water_level_data_sets->map(function(WaterReading $water_level_data_sets, $key) {
             return $water_level_data_sets->time;
         });

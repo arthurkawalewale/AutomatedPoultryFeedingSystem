@@ -34,12 +34,25 @@ class FeedStatsChart extends Chart
                         'text' => 'Average Feed volume',
                     ],
                 ],
+                'percentage' => [
+                    'position' => 'right',
+                    'max' => 30,
+                    'min' => 0,
+                    'ticks' => [
+                        'stepSize' => 5,
+                    ],
+                    'title' => [
+                        'display' => true,
+                        'align' => 'center',
+                        'text' => 'No. of Chicken',
+                    ],
+                ],
                 'x' => [
                     'display' => true,
                     'title' => [
                         'display' => true,
                         'align' => 'center',
-                        'text' => 'Time Recorded',
+                        'text' => 'Time',
                     ],
                 ],
             ],
@@ -51,28 +64,34 @@ class FeedStatsChart extends Chart
             'backgroundColor'           => 'rgb(77, 77, 82, 0.4)',
             'fill'                      => true,
             'borderColor'               => 'rgb(77, 77, 82, 0.4)',
-            'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
-            'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
-            'pointHoverBackgroundColor' => '#7F9CF5',
-            'pointHoverBorderColor'     => '#7F9CF5',
             'borderWidth'               => 1,
-            'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0.4
         ]);
 
         $this->dataset("Trough (cm)", "bar", $data->datasets()[1])->options([
             'backgroundColor'           => 'rgb(199, 12, 40, 0.7)',
             'fill'                      => true,
             'borderColor'               => 'rgb(199, 12, 40, 0.7)',
-            'pointBackgroundColor'      => 'rgb(255, 255, 255, 0)',
-            'pointBorderColor'          => 'rgb(255, 255, 255, 0)',
-            'pointHoverBackgroundColor' => '#7F9CF5',
-            'pointHoverBorderColor'     => '#7F9CF5',
             'borderWidth'               => 1,
-            'pointRadius'               => 1,
             'tooltip'                   => true,
-            'tension'                   =>  0.4
+        ]);
+
+        $this->dataset('No. of Chicken', 'line', $data->datasets()[2])->options([
+            'backgroundColor'           => 'rgb(17, 122, 45, 0.4)',
+            'borderColor'               => 'rgb(17, 122, 45, 0.4)',
+            'pointBackgroundColor'      => 'rgb(9, 189, 48)',
+            'pointBorderColor'          => 'rgba(9, 189, 48)',
+            'pointHoverBorderWidth'     => 1,
+            'pointHoverRadius'          => 3,
+            'pointRadius'               => 2,
+            'borderWidth'               => 2,
+            'pointBorderWidth'          => 1,
+            'pointHitRadius'            => 2,
+            'pointStyle'                => 'circle',
+            'tooltip'                   => true,
+            'tension'                   =>  0.1,
+            'yAxisID'                   => 'percentage',
+            'showLine'                  => false
         ]);
     }
 }
