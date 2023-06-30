@@ -1,12 +1,5 @@
 from flask import Flask, request
 import mysql.connector
-import africastalking
-
-# Initialize Africa's Talking
-username = "sandbox"
-api_key = "0c5670b1ecc4862781f0946da4f5851413f2faef187bafd9bb86c78851cd33f8"
-africastalking.initialize(username, api_key)
-ussd = africastalking.USSD
 
 app = Flask(__name__)
 db_connection = mysql.connector.connect(
@@ -17,14 +10,8 @@ db_connection = mysql.connector.connect(
 )
 db_cursor = db_connection.cursor()
 
-# Menu Levels
-MAIN_MENU = "main"
-SUBMENU_FEED = "feed"
-SUBMENU_WATER = "water"
-SUBMENU_AVERAGE = "average"
-
-current_menu = MAIN_MENU
-
+# Global variable to store the current menu level
+menu_level = "main"
 
 def display_main_menu():
     response = "CON IoT-Based CFS-Main Menu.\n"
@@ -95,45 +82,54 @@ def get_average_readings_for_day(date):
 
 @app.route("/ussd", methods=["POST", "GET"])
 def ussd_callback():
-    global current_menu
+    global menu_level  # Use the global variable
 
     session_id = request.values.get("sessionId")
     text = request.values.get("text", "")
 
     if text == "":
         response = display_main_menu()
+        menu_level = "main"
 
     elif text == "0":
         response = "END Thank you, bye!."
+        menu_level = "main"
 
     elif text == "1":
         response = get_latest_feed_reading()
-        current_menu = SUBMENU_FEED
+        menu_level = "feed"
 
     elif text == "2":
         response = get_latest_water_reading()
-        current_menu = SUBMENU_WATER
+        menu_level = "water"
 
     elif text == "3":
         response = "CON Enter the date (YY-MM-DD) for the readings:"
-        current_menu = SUBMENU_AVERAGE
+        menu_level = "average"
 
-    elif current_menu == SUBMENU_AVERAGE and text.startswith("#"):
-        if current_menu == MAIN_MENU:
-            response = display_main_menu()
-            current_menu = MAIN_MENU
+    elif text.startswith("3*"):
+        parts = text.split("*")
+
+        if len(parts) == 2:
+            date = parts[1]
+            response = get_average_readings_for_day(date)
+            menu_level = "average"
         else:
-            response = "CON Invalid input. Please try again."  
+            response = "CON Invalid input format. Please enter the date in the correct format."
+            menu_level = "average"
 
-    elif current_menu == SUBMENU_FEED or current_menu == SUBMENU_WATER or current_menu == SUBMENU_AVERAGE:
-        if current_menu == SUBMENU_FEED:
-            response = get_latest_feed_reading()
-        elif current_menu == SUBMENU_WATER:
-            response = get_latest_water_reading()
-        elif current_menu == SUBMENU_AVERAGE:
-            response = "CON Enter the date (YY-MM-DD) for the readings:"
-        
-        current_menu = MAIN_MENU
+    elif text == "#":
+        if menu_level == "feed" or menu_level == "water" or menu_level == "average":
+            response = display_main_menu()
+            menu_level = "main"
+        else:
+            response = "CON Invalid input. Please try again."
+    elif text == "1*#":
+        response = display_main_menu()
+    elif text == "2*#":
+        response = display_main_menu()
+    elif text == "3*#":
+        response = display_main_menu()
 
     else:
         response = "CON Invalid input. Please try again."
