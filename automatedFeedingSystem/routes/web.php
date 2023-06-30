@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\UserEditController;
 |
 */
 
-Auth::routes();
+/*Auth::routes();
 
 //Email verification Notice
 Route::get('/email/verify', function () {
@@ -42,4 +42,8 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile',[UserEditController::class,'index'])->name('profile');
     Route::post('/profile/{user}',[UserEditController::class,'update'])->name('profile.update');
+});*/
+
+Route::get('/', function (){
+    return view('dashboard');
 });
