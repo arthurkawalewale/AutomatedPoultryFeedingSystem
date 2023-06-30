@@ -30,7 +30,7 @@
 
     <br>
 
-    <div>
+    <!--<div>
         <button type="button" class="btn btn-secondary mb-3" id="controls"> <x-feathericon-settings class="align-text-bottom" style="height: 20px"/> Controls</button>
 
         <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
@@ -60,8 +60,7 @@
                 </form>
             </div>
         </div>
-
-    </div>
+    </div>-->
 </div>
 
 <button onclick="topFunction()" id="myBtn" class="btn btn-sm btn-primary" title="Go to top"><x-feathericon-chevron-up style="height: 40px"/></button>

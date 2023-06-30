@@ -90,12 +90,12 @@
                                     Statistics
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="/#controls">
                                     <x-feathericon-settings class="align-text-bottom" style="height: 20px"/>
                                     Controls
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     @endguest
 
