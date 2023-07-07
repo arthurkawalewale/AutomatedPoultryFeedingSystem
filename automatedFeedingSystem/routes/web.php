@@ -43,3 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile',[UserEditController::class,'index'])->name('profile');
     Route::post('/profile/{user}',[UserEditController::class,'update'])->name('profile.update');
 });
+
+/*Route::get('/', function (){
+    return view('dashboard');
+});*/

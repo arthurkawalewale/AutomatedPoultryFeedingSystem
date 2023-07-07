@@ -91,7 +91,7 @@ class FeedStatsChart extends Chart
             'tooltip'                   => true,
             'tension'                   =>  0.1,
             'yAxisID'                   => 'percentage',
-            'showLine'                  => false
+            'showLine'                  => true
         ]);
     }
 }
