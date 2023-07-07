@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 class WaterLevelDataSets extends ChartComponent
 {
     /**
+     * return a view to the livewire component holding the water-level chart.
      * @return string
      */
     protected function view(): string
@@ -20,6 +21,7 @@ class WaterLevelDataSets extends ChartComponent
     }
 
     /**
+     * Initialize the live water level chart
      * @return string
      */
     protected function chartClass(): string
@@ -28,13 +30,11 @@ class WaterLevelDataSets extends ChartComponent
     }
 
     /**
+     * Obtain the necessary chart components (labels and datasets) the database to be passed to the chart component.
      * @return \App\Support\ChartComponentData
      */
     protected function chartData(): ChartComponentData
     {
-        //$water_level_data_sets = WaterReading::query()->latest('id')->orderBy('id','desc')->take(5)->get();
-
-        //dd($water_level_data_sets);
 
         $startOfDay = Carbon::today()->startOfDay();
         $endOfDay = Carbon::today()->endOfDay();
