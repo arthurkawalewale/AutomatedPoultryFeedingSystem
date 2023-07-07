@@ -91,9 +91,14 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/#controls">
+                                <!--<a class="nav-link" href="/#controls">
                                     <x-feathericon-settings class="align-text-bottom" style="height: 20px"/>
                                     Controls
+                                </a>-->
+
+                                <a class="nav-link" href="/profile">
+                                     <x-feathericon-user class="align-text-bottom" style="height: 20px"/>
+                                     Profile
                                 </a>
                             </li>
                         </ul>
@@ -115,10 +120,6 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/profile">
-                                        <x-feathericon-user class="align-text-bottom" style="height: 20px"/>
-                                        Profile
-                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

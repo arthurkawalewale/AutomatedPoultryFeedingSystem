@@ -8,7 +8,12 @@ use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 class WaterStatsChart extends Chart
 {
     /**
-     * Initializes the chart.
+     * Initializes the Water Statistic chart.
+     * It shows stats for both the troughs and the water tanks/reservoirs.
+     * The troughs and reservoirs have different maximum water levels.
+     * The chart provide stats for Weekly, Monthly and Yearly time intervals.
+     * It also has a linear chart that is displaying the number of birds (chickens).
+     * This is done so that the information displayed on the water levels has some meaning when coupled up with the number chicken at that time.
      *
      * @return void
      */
@@ -97,7 +102,7 @@ class WaterStatsChart extends Chart
             'tooltip'                   => true,
             'tension'                   =>  0.1,
             'yAxisID'                   => 'percentage',
-            'showLine'                  => false
+            'showLine'                  => true,
         ]);
     }
 }

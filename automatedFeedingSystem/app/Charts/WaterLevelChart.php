@@ -8,7 +8,9 @@ use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 class WaterLevelChart extends Chart
 {
     /**
-     * Initializes the chart.
+     * Initializes the live monitored water chart.
+     * This chart displays real time data from the sensors in the trough and tanks/reservoirs.
+     * It renders new data every 1s. It uses Laravel livewire for component update without having to refresh the whole page.
      *
      * @return void
      */

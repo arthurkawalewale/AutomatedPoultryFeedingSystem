@@ -12,12 +12,9 @@ use Livewire\Component;
 
 class FeedLevelDatasets extends ChartComponent
 {
-    /*public function render()
-    {
-        return view('livewire.feed-level-datasets');
-    }*/
 
     /**
+     * return a view to the livewire component holding the feed-level chart.
      * @return string
      */
     protected function view(): string
@@ -26,6 +23,7 @@ class FeedLevelDatasets extends ChartComponent
     }
 
     /**
+     * Initialize the live feed level chart
      * @return string
      */
     protected function chartClass(): string
@@ -34,6 +32,7 @@ class FeedLevelDatasets extends ChartComponent
     }
 
     /**
+     * Obtain the necessary chart components (labels and datasets) the database to be passed to the chart component.
      * @return \App\Support\ChartComponentData
      */
     protected function chartData(): ChartComponentData

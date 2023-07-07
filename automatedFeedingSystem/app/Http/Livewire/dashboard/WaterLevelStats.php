@@ -17,6 +17,7 @@ class WaterLevelStats extends ChartComponent
     public $intervals = array("weekly"=>'This Week', "monthly"=>'Monthly', "yearly"=>'Yearly');
 
     /**
+     * return a view to the livewire component holding the feed-level stats chart.
      * @return string
      */
     protected function view(): string
@@ -25,6 +26,7 @@ class WaterLevelStats extends ChartComponent
     }
 
     /**
+     * Initialize the live water level Stats chart
      * @return string
      */
     protected function chartClass(): string
@@ -33,6 +35,7 @@ class WaterLevelStats extends ChartComponent
     }
 
     /**
+     * Obtain the necessary chart components (labels and datasets) the database to be passed to the chart component.
      * @return \App\Support\ChartComponentData
      */
     protected function chartData(): ChartComponentData
