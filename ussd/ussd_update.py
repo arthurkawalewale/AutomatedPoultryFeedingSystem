@@ -1,4 +1,4 @@
-"""
+"""!
 @file ussd_update.py
 @brief This file contains the implementation of a Flask-based USSD menu for poultry IoT.
 
@@ -20,19 +20,19 @@ db_connection = mysql.connector.connect(
 )
 db_cursor = db_connection.cursor()
 
-# Africa's Talking API credentials
+## Africa's Talking API credentials
 USERNAME = "sandbox"
 API_KEY = "0c5670b1ecc4862781f0946da4f5851413f2faef187bafd9bb86c78851cd33f8"
 
-# Initializing Africa's Talking SDK
+## Initializing Africa's Talking SDK
 africastalking.initialize(USERNAME, API_KEY)
 ussd = africastalking.USSD
 
-# Global variable to store the current menu level
+## Global variable to store the current menu level
 menu_level = "main"
 
 def display_main_menu():
-    """
+    """!
     @brief Displays the main menu.
 
     This function generates the main menu for the USSD application.
@@ -49,7 +49,7 @@ def display_main_menu():
 
 
 def get_latest_feed_reading():
-    """
+    """!
     @brief Retrieves the latest feed reading.
 
     This function retrieves the latest feed reading from the database and formats
@@ -72,7 +72,7 @@ def get_latest_feed_reading():
 
 
 def get_latest_water_reading():
-    """
+    """!
     @brief Retrieves the latest water reading.
 
     This function retrieves the latest water reading from the database and formats
@@ -95,7 +95,7 @@ def get_latest_water_reading():
 
 
 def get_average_readings_for_day(date):
-    """
+    """!
     @brief Retrieves the average readings for a specific day.
 
     This function retrieves the average feed and water readings for a specific day
@@ -132,7 +132,7 @@ def get_average_readings_for_day(date):
 
 @app.route("/ussd", methods=["POST", "GET"])
 def ussd_callback():
-    """
+    """!
     @brief USSD callback function.
 
     This function handles the USSD callback from Africa's Talking API. It makes use of all the other functions
@@ -176,19 +176,25 @@ def ussd_callback():
             response = "CON Invalid input format. Please enter the date in the correct format."
             menu_level = "average"
 
-    elif text == "#": #returning to main menu when user inputs # in any submenu
+    ##returning to main menu when user inputs # in any submenu
+    elif text == "#": 
         if menu_level == "feed" or menu_level == "water" or menu_level == "average":
             response = display_main_menu()
             menu_level = "main"
         else:
             response = "CON Invalid input. Please try again."
-    elif text == "1*#":# Returning to main menu if user inputs # while in submenu 1
+    ## Returning to main menu if user inputs # while in submenu 1
+    elif text == "1*#":
         response = display_main_menu()
     elif text == "1*#*2*#*3":
         response = display_main_menu()
-    elif text == "2*#" :# Return to main menu when user inputs # while in submenu 2
+
+    ## Return to main menu when user inputs # while in submenu 2
+    elif text == "2*#" :
         response = display_main_menu()
-    elif text ==  "3*#": # Return to main menu when user inputs # while in submenu 3
+
+    ## Return to main menu when user inputs # while in submenu 3
+    elif text ==  "3*#": 
         response = display_main_menu()
 
     else:
